@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
     <title>fb-posts</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 
     <!-- addig icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="i/apple-icon-57x57.png">
@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="i/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="i/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="i/favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="i/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -29,9 +29,22 @@
   </head>
   <body>
     <div class="container">
-      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fvelokyiv%2Fposts%2F1575379525842547" width="500" height="491" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-      <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D604314139910596%26id%3D291232054552141" width="500" height="613" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      <img src="https://timeandupdate.com/wp-content/uploads/2017/12/facebookhaha.png" alt="facebook" style="width:500px;">
+      <iframe src="./frame1.html" width="500" height="491" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      <iframe src="./frame2.html" width="500" height="613" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     </div>
-    <!-- <script src="app.js"></script> -->
+
+    <script type="text/javascript">
+      if (navigator.serviceWorker.controller) {
+        console.log('[PWA Builder] active service worker found, no need to register')
+      } else {
+        navigator.serviceWorker.register('pwabuilder-sw.js', {
+          scope: './'
+        }).then(function(reg) {
+          console.log('Service worker has been registered for scope:'+ reg.scope);
+        });
+      }
+    </script>
+
   </body>
 </html>
