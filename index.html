@@ -30,21 +30,24 @@
   <body>
     <div class="container">
       <img src="https://timeandupdate.com/wp-content/uploads/2017/12/facebookhaha.png" alt="facebook" style="width:500px;">
-      <iframe src="./frame1.html" width="500" height="491" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-      <iframe src="./frame2.html" width="500" height="613" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      <iframe id="frame1" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fvelokyiv%2Fposts%2F1577453678968465" width="500" height="287" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      <img id="img1" style="display:none; margin: 0 auto" src="https://cdn2.iconfinder.com/data/icons/prohibitions/105/12-512.png" alt="no connection">
+      <iframe id="frame2" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D604314139910596%26id%3D291232054552141" width="500" height="613" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     </div>
 
-    <script type="text/javascript">
-      if (navigator.serviceWorker.controller) {
-        console.log('[PWA Builder] active service worker found, no need to register')
+    <script type="text/javascript" src="app.js"></script>
+    <script>
+      var frame1 = document.getElementById("frame1");
+      var frame2 = document.getElementById("frame2");
+      var img1 = document.getElementById("img1");
+      if (window.navigator.onLine){
+        console.log("online");
       } else {
-        navigator.serviceWorker.register('pwabuilder-sw.js', {
-          scope: './'
-        }).then(function(reg) {
-          console.log('Service worker has been registered for scope:'+ reg.scope);
-        });
+        console.log("offline");
+        img1.style.display="block";
+        frame1.style.display="none";
+        frame2.style.display="none";
       }
     </script>
-
   </body>
 </html>
